@@ -1,0 +1,44 @@
+{% extends "baseDashboards.html" %}
+
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+
+    <div class="divCirkels">
+        <a href="{{ url_for("lights") }}"><div class="cirkel cirkel1"><img class="cirkelImage" src="{{ url_for("static",filename="icons/idea.png") }}" alt="lichten"></div></a>
+
+        <a href="{{ url_for("temperatuur") }}"><div class="cirkel cirkel2">
+            <img class="cirkelImage" src="{{ url_for("static",filename="icons/thermometer.png") }}" alt="thermometer"></div></a>
+
+       <a href="{{ url_for("deuren") }}"> <div class="cirkel cirkel3">
+            <img class="cirkelImage" src="{{ url_for("static",filename="icons/open-door-with-border.png") }}" alt="deur"></div></a>
+
+    </div>
+    <div class="divCirkelsOnder">
+        <a href="{{ url_for("user") }}"><div class="cirkel cirkel4">
+            <img class="cirkelImage" src="{{ url_for("static",filename="icons/users.png") }}" alt="Gebruikers"></div></a>
+
+        <a href="{{ url_for("stats") }}"><div class="cirkel cirkel5">
+            <img class="cirkelImage" src="{{ url_for("static",filename="icons/stats.png") }}" alt="Stats"></div>
+        </a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}
+{##}
+{#{% block footer %}#}
+{##}
+{#{% endblock %}#}

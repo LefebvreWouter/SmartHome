@@ -1,0 +1,46 @@
+{% extends 'baseDashboards.html' %}
+
+{% block body %}
+    <html>
+    <head>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Datum', 'Meting in °C'],
+                    ['{{ Datum[0]|string }}', {{ Temp[0] }}],
+                    ['{{ Datum[1]|string }}', {{ Temp[1] }}],
+                    ['{{ Datum[2]|string }}', {{ Temp[2] }}]
+                ]);
+
+                var options = {
+                    title: 'Temperatuur ',
+                    curveType: 'function',
+                    legend: {position: 'bottom'}
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+                chart.draw(data, options);
+            }
+        </script>
+    </head>
+    <body>
+    <div class="statsButton1">
+        <a href="{{ url_for('stats') }}"></a>Temperatuur</input>
+    </div>
+    <div class="statsButton2">
+        <a href="{{ url_for('statsLicht') }}"></a>Lichten</input>
+    </div>
+    <div class="statsButton3">
+        <a href="{{ url_for('statsDeur' )}}"></a>Deuren</input>
+    </div>
+    <div id="curve_chart" style="width: auto; height: 500px"></div>
+    </body>
+    </html>
+
+{% endblock %}

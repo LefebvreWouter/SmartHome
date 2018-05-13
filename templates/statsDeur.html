@@ -1,0 +1,45 @@
+{% extends 'baseDashboards.html' %}
+
+{% block body %}
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Serie Nr');
+          data.addColumn('string', 'Datum');
+          data.addColumn('String', '0=Gesloten 1=Open');
+        data.addRows([
+          ['{{ SerieNr[0] }}',  {v: 10000, f: '{{ Datum[0] }}'}, '{{ Deur[0] }}'],
+          ['{{ SerieNr[1] }}',   {v:8000,   f: '{{ Datum[1] }}'},'{{ Deur[1] }}'],
+          ['{{ SerieNr[2] }}', {v: 12500, f: '{{ Datum[2] }}'},'{{ Deur[2] }}'],
+          ['{{ SerieNr[3] }}',   {v: 7000,  f: '{{ Datum[3] }}'},'{{ Deur[3] }}']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      }
+    </script>
+  </head>
+  <body>
+    <div id="table_div"></div>
+  </body>
+</html>
+
+        <a href="{{ url_for('stats') }}"><div class="statsButton1">Temperatuur</div></a></input>
+
+        <a href="{{ url_for('statsLicht') }}"><div class="statsButton2">Lichten</div></a></input>
+
+        <a href="{{ url_for('statsDeur' )}}"><div class="statsButton3">Deuren</div></a></input>
+    <div id="table_div"></div>
+  </body>
+</html>
+
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends 'baseDashboards.html' %}
+
+{% block body %}
+    <html>
+    <head>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Datum', 'Meting in °C'],
+                    ['{{ Datum[0]|string }}', {{ Temp[0] }}],
+                    ['{{ Datum[1]|string }}', {{ Temp[1] }}],
+                    ['{{ Datum[2]|string }}', {{ Temp[2] }}]
+{#                    ['{{ Datum[3]|string }}', {{ Temp[3] }}],#}
+{#                    ['{{ Datum[4]|string }}', {{ Temp[4] }}]#}
+                ]);
+
+                var options = {
+                    title: 'Temperatuur ',
+                    curveType: 'function',
+                    legend: {position: 'bottom'}
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+                chart.draw(data, options);
+            }
+        </script>
+    </head>
+    <body>
+        <a href="{{ url_for('stats') }}"><div class="statsButton1">Temperatuur</div></a></input>
+
+        <a href="{{ url_for('statsLicht') }}"><div class="statsButton2">Lichten</div></a></input>
+
+        <a href="{{ url_for('statsDeur' )}}"><div class="statsButton3">Deuren</div></a></input>
+
+    <div id="curve_chart" style="width: auto; height: 500px"></div>
+    </body>
+    </html>
+
+{% endblock %}

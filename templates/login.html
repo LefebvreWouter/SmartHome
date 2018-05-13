@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" action="{{ url_for('dashboard') }}" method="get">
+      <input type="text" placeholder="Gebruikersnaam"/>
+      <input type="password" placeholder="passwoord"/>
+      <button type="submit">login</button>
+        <h4>Nog geen gebruiker, klik dan hier</h4>
+
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

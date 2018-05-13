@@ -1,0 +1,18 @@
+{% extends 'baseDashboards.html' %}
+{%  block body %}
+<div class="login-page">
+  <div class="form">
+    <form class="contact-form" action="{{ url_for('dashboard') }}" method="get">
+      <input type="text" placeholder="Uw Naam"/>
+      <input type="text" placeholder="Uw E-mail adres"/>
+        <textarea typeof="text" placeholder="Uw bericht...."></textarea>
+      <button type="submit">Verstuur</button>
+
+
+
+    </form>
+  </div>
+</div>
+
+
+{%  endblock %}

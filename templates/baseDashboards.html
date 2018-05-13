@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/reset.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/style.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/materialIcon.css") }}">
+
+
+    <meta charset="UTF-8">
+    <title>{%  block title %}{%  endblock %}</title>
+</head>
+<body>
+<nav>
+    <ul>
+    <div class="floatleft">
+{#        <li><a {% block Home %}{% endblock %} href="{{ url_for("login") }}">Home</a></li>#}
+        <li><a {% block Dashboard %}{% endblock %} href="{{ url_for("dashboard") }}">Dashboard</a></li>
+    </div>
+    <div class="floatright">
+        <li><a {% block user %}{% endblock %} href="{{ url_for("user") }}"><i class="material-icons">person</i></a></li>
+        <li><a {% block logout %}{% endblock %} href="{{ url_for("login") }}"><i class="material-icons">exit_to_app</i></a></li>
+    </div>
+
+    </ul>
+</nav>
+{% block body %}
+
+{% endblock %}
+
+{% block footer %}
+
+
+<footer class="footer-distributed">
+
+			<div class="footer-right">
+
+				<a href="http://www.facebook.com" target="_blank"><img class="imgFooter" src="{{ url_for("static",filename="icons/facebook.png") }}" alt=""></a>
+				<a href="http://wwww.twitter.com" target="_blank"><img class="imgFooter" src="{{ url_for("static",filename="icons/twitter-logo-silhouette.png") }}" alt=""></a>
+				<a href="https://github.com/WouterLefebvre/Project1" target="_blank"><img class="imgFooter" src="{{ url_for("static",filename="icons/github-sign.png") }}" alt=""></a>
+
+
+			</div>
+
+			<div class="footer-left">
+
+				<p class="footer-links">
+					<a href="{{ url_for('about') }}">About</a>
+					·
+					<a href="{{ url_for('contact') }}">Contact</a>
+
+
+				<p>Wouter Lefebvre - NMCT &copy; 2017</p>
+			</div>
+
+		</footer>
+{% endblock %}
+</body>
+</html>
